@@ -1,0 +1,29 @@
+#cloud-config
+users:
+  - name: jon
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    groups: sudo
+    shell: /bin/bash
+    ssh-authorized-keys:
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJjM78UyIQWNbMsca2qafeshPflijH8HbbsKuTTZqB1F jon@DESKTOP-SNM4E2E
+
+
+
+
+#apt:
+#  sources:
+#    kubernetes.list:
+#      source: "deb http://apt.kubernetes.io/ kubernetes-xenial main"
+
+packages:
+ - openssh-server
+ - curl
+
+
+runcmd:
+  - systemctl enable ssh
+  - systemctl start ssh
+  - curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add
+  - sudo apt-get update -y
+  - sudo apt-get upgrade -y
+  - curl -sL https://install.zerotier.com | sudo bash

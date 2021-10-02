@@ -1,0 +1,28 @@
+Host jumphostgc
+  HostName 34.79.58.3
+  User jon
+  IdentityFile ~/.ssh/id_ed25519
+  Port 22
+  VisualHostkey yes
+  IdentitiesOnly Yes
+  KexAlgorithms curve25519-sha256@libssh.org
+  Cipher aes256-ctr
+  LocalForward 127.0.0.1:4980 git.europe-west1-b.c.terraform-327615.internal:80
+  LocalForward 127.0.0.1:4981 xsoar1.europe-west1-c.c.terraform-327615.internal:443
+  LocalForward 127.0.0.1:4982 xsoar2.europe-west1-d.c.terraform-327615.internal:443
+
+Host router1
+  HostName 34.79.58.3
+  User jon
+  IdentityFile ~/.ssh/id_ed25519
+  Port 22
+  VisualHostkey yes
+  IdentitiesOnly Yes
+  KexAlgorithms curve25519-sha256@libssh.org
+  Cipher aes256-ctr
+
+Host router2
+  hostname router2.europe-west1-c.c.pftest.internal
+  proxyjump router1
+
+
