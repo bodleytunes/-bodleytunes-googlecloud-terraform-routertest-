@@ -8,6 +8,7 @@ resource "google_compute_router" "router" {
   #}
 }
 
+# nat gateway
 resource "google_compute_router_nat" "nat" {
   name                               = "my-router-nat"
   router                             = google_compute_router.router.name
