@@ -19,3 +19,17 @@ resource "google_compute_firewall" "vpc-firewall" {
     target_tags = ["routers"]
 
 }
+
+resource "google_compute_firewall" "vpc-firewall2" {
+    name    = "bgp"
+    network = "${google_compute_network.vpc-network.self_link}"
+
+
+    allow {
+      protocol = "tcp"
+      ports    = ["179"]
+    }
+    source_tags = ["routers"]
+    target_tags = ["routers"]
+
+}

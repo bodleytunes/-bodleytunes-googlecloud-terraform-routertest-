@@ -8,6 +8,8 @@ resource "google_compute_instance" "router1" {
  name         = "router1"
  machine_type = var.machine_type
  zone         = "${var.region}-b"
+ can_ip_forward = true
+
 
 
 network_interface {
@@ -35,6 +37,8 @@ resource "google_compute_instance" "router2" {
  name         = "router2"
  machine_type = var.machine_type
  zone         = "${var.region}-c"
+ can_ip_forward = true
+
 
 
  network_interface {
