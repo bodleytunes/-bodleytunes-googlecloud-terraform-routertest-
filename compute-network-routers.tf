@@ -13,16 +13,16 @@ resource "google_compute_route" "corp1" {
   dest_range  = "10.100.0.0/16"
   network     = google_compute_network.vpc-network.name
   #next_hop_ip = "10.132.1.5"
-  next_hop_type = "INSTANCE"
+  #next_hop_type = "INSTANCE"
   next_hop_instance = google_compute_instance.router1.self_link
   priority    = 1000
 }
 resource "google_compute_route" "corp2" {
-  name        = "corp1"
+  name        = "corp2"
   dest_range  = "10.100.0.0/16"
   network     = google_compute_network.vpc-network.name
   #next_hop_ip = "10.132.1.5"
-  next_hop_type = "INSTANCE"
+  #next_hop_type = "INSTANCE"
   next_hop_instance = google_compute_instance.router2.self_link
   priority    = 1000
 }
